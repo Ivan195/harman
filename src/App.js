@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Chart from './Сhart';
+import {data as measurementsData, elements} from './MeasurementsData';
+import ElementTab from "./ElementsTab";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [element, setElement] = useState(elements[0]);
+    return (
+        <div className="App">
+            <ElementTab setElement={setElement}/>
+            <Chart measurementsDataList={measurementsData} element={element}>
+
+            </Chart>
+        </div>
+    );
 }
 
 export default App;

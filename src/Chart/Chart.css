@@ -1,0 +1,9 @@
+.chart {
+    float: left;
+}
+
+.chart-text {
+    font-size: 12px;
+    font-weight: 200;
+    color: deepskyblue;
+}

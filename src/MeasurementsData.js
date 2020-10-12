@@ -1,3 +1,5 @@
+import * as _ from "lodash"
+
 const getData = () => {
     const data = [
         {
@@ -1405,11 +1407,17 @@ const getData = () => {
         }
     ];
 
-    data.getDataByElement = function (element) {
-        return this.filter((data) => data[element]).map((data) => {
-            return {name: data.depth, element: data[element]}
-        })
-    };
+    data.getMaxAmount = function (element) {
+        return _.maxBy(data, (o) => {
+            return o[element];
+        })[element];
+    }
+
+    data.getMaxDepth = function () {
+        return _.maxBy(data, (o) => {
+            return o.depth;
+        }).depth;
+    }
 
     return data;
 }
@@ -1434,3 +1442,16 @@ export const elements = [
     "Zn",
     "Zr"
 ];
+
+export const viewElements = [
+  'Fe',
+  'Al',
+  'Mn',
+  'Cu'
+];
+
+export const colors = [
+    "MediumSpringGreen",
+    "Khaki",
+    "IndianRed"
+]

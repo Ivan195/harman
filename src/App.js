@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import './App.css';
-import Chart from './Сhart';
-import {data as measurementsData, elements} from './MeasurementsData';
-import ElementTab from "./ElementsTab";
+import Chart from './Chart/Сhart';
+import {data as measurementsData, viewElements} from './MeasurementsData';
 
 function App() {
-    const [element, setElement] = useState(elements[0]);
     return (
         <div className="App">
-            <ElementTab setElement={setElement}/>
-            <Chart measurementsDataList={measurementsData} element={element}>
-
-            </Chart>
+            {viewElements.map((element, index) => {
+                return <Chart key={index} measurementsDataList={measurementsData} element={element}
+                              isFirst={index === 0}>
+                </Chart>
+            })}
         </div>
     );
 }

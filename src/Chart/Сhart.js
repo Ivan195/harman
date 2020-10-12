@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 import {useState} from "react";
-import "../Chart.css";
 import * as d3 from "d3-shape";
 import {scaleLinear} from "d3-scale";
 import {Xaxis} from "./Xaxis";
